@@ -1,0 +1,13 @@
+.env
+.env.local
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.next/
+out/
+*.db
+.coverage
+.pytest_cache/
+htmlcov/
+dist/

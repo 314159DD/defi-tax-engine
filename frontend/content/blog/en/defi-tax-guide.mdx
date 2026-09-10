@@ -1,0 +1,100 @@
+---
+title: "How to Calculate DeFi Taxes (Step-by-Step 2026 Guide)"
+description: "A practical guide to calculating taxes on DeFi swaps, LP positions, staking, bridges, and airdrops. Includes common mistakes and how to avoid them."
+date: "2026-03-26"
+tags: ["defi", "guide", "taxes"]
+author: "Editorial Team"
+---
+
+## Why DeFi Taxes Are Complicated
+
+DeFi (decentralized finance) creates tax events that traditional financial reporting was never designed to handle. Every token swap is a taxable disposition. Providing liquidity involves complex multi-token cost basis tracking. Staking rewards are ordinary income. And none of this appears on your 1099-DA.
+
+The IRS has made it clear that DeFi transactions are taxable. The BMF in Germany has taken the same stance. Whether you are in the US or Germany, you are responsible for accurately reporting every DeFi interaction.
+
+## Step 1: Identify All Taxable Events
+
+Start by categorizing every DeFi transaction into its tax treatment:
+
+**Taxable dispositions (capital gains/losses):**
+- Token swaps on a DEX (ETH to USDC, WBTC to DAI, etc.)
+- Selling tokens received from any DeFi protocol
+- Removing liquidity if the tokens received differ in value from what you deposited
+
+**Ordinary income events:**
+- Staking rewards (the moment they are credited to your wallet)
+- Liquidity pool fee earnings (when collected)
+- Airdrops (at fair market value on the date received)
+- Governance token rewards from yield farming
+
+**Not taxable:**
+- Self-transfers between your own wallets
+- Cross-chain bridge transfers (same asset, different chain)
+- Wrapping or unwrapping tokens (ETH to wETH)
+- Depositing tokens into a lending protocol (you still own them)
+
+## Step 2: Gather Your Transaction History
+
+You need a complete record of every on-chain transaction across all chains you used. This includes:
+
+- **EVM chains:** Ethereum, Polygon, Arbitrum, Base, Optimism
+- **Non-EVM chains:** Solana and its DeFi ecosystem
+- **Layer 2 transactions** that may not appear on the main chain explorer
+
+CryptoTax DeFi imports transactions from six chains automatically. Just enter your wallet addresses, and the tool pulls every transaction, including internal transactions and token transfers that basic explorers miss.
+
+## Step 3: Categorize Each Transaction
+
+This is where most people make mistakes. A single on-chain transaction can involve multiple tax events. For example, a Uniswap swap contains a disposal of one token and an acquisition of another, plus a gas fee that may be deductible.
+
+**Common categorization errors:**
+- Treating bridge transfers as sales (they are not)
+- Missing staking reward income events
+- Ignoring gas fees (they are either part of cost basis or a deductible expense)
+- Counting LP deposits as disposals (they are not until you withdraw)
+
+## Step 4: Calculate Cost Basis
+
+For each disposed token, you need to determine its cost basis, meaning what you originally paid for it. The IRS allows three methods:
+
+- **FIFO (First In, First Out):** The oldest tokens are sold first
+- **LIFO (Last In, First Out):** The newest tokens are sold first
+- **HIFO (Highest In, First Out):** The most expensive tokens are sold first
+
+HIFO typically minimizes your tax bill because it maximizes the cost basis applied to each sale, reducing your gain. However, you must be consistent with whichever method you choose.
+
+## Step 5: Account for Gas Fees
+
+Gas fees paid in DeFi transactions have a specific tax treatment:
+
+- **Gas on a purchase or swap:** Adds to the cost basis of the acquired token
+- **Gas on a sale:** Reduces the proceeds, lowering your gain
+- **Gas on a failed transaction:** May be deductible as a transaction cost
+- **Gas on a transfer:** Part of the transfer cost, not separately deductible
+
+Over the course of a year, gas fees can add up to meaningful amounts that reduce your tax liability. Do not ignore them.
+
+## Step 6: Generate Your Tax Report
+
+Once all transactions are categorized and cost basis is calculated, generate the appropriate tax forms:
+
+- **US filers:** Form 8949 (every individual disposal) and Schedule D (summary)
+- **German filers:** Anlage SO (sonstige Einkünfte) with the Spekulationsfrist applied
+
+## Tools Comparison
+
+| Feature | CryptoTax DeFi | Koinly | CoinTracker |
+|---------|---------------|--------|-------------|
+| DeFi accuracy | Full support | Partial | Partial |
+| LP tracking | Per-position | Basic | Basic |
+| Bridge detection | Automatic | Manual | Manual |
+| Privacy | Local only | Cloud | Cloud |
+| Starting price | Free | $49/yr | $59/yr |
+
+## Common Mistakes to Avoid
+
+1. **Forgetting DeFi entirely.** Your 1099-DA does not cover it, but the IRS can see on-chain data.
+2. **Double-counting LP tokens.** A deposit into an LP is not a sale. Do not report it as one.
+3. **Ignoring income events.** Staking rewards and airdrops are income, even if you did not sell them.
+4. **Using the wrong cost basis method.** Pick one (FIFO, LIFO, or HIFO) and apply it consistently.
+5. **Not tracking cross-chain activity.** If you bridged tokens, those transactions need to be in your records.

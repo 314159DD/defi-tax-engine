@@ -1,0 +1,21 @@
+# Core
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+python-dotenv>=1.0.0
+httpx>=0.27.0
+aiohttp>=3.9.0
+
+# Data
+pydantic>=2.7.0
+
+# Auth & billing
+supabase>=2.4.0
+stripe>=9.0.0
+
+# Solana
+# helius-sdk is not on PyPI - use httpx to call the REST API directly
+
+# Dev / test
+pytest>=8.2.0
+pytest-asyncio>=0.23.0

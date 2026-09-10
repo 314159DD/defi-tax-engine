@@ -1,0 +1,447 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+   CRYPTOTAX DEFI - "VAULT" DESIGN SYSTEM
+   Bloomberg Terminal × Swiss Banking × Crypto Wallet
+   ============================================================ */
+
+@custom-variant dark (&:is(.dark *));
+
+/* Fonts loaded via next/font/google in layout.tsx - no @font-face needed */
+
+@theme inline {
+  /* --- Typography --- */
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-heading: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* --- Base semantic colors (mapped from CSS vars) --- */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* --- Radius --- */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  /* --- Charts --- */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* --- Sidebar --- */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+}
+
+/* ============================================================
+   COLOR SYSTEM - "VAULT" DARK MODE ONLY
+   Near-black with subtle cool undertone + amber/gold accent
+   ============================================================ */
+
+:root {
+  /* Dark mode only - no light theme */
+  --background: oklch(0.13 0.005 260);
+  --foreground: oklch(0.93 0.005 260);
+  --card: oklch(0.17 0.005 260);
+  --card-foreground: oklch(0.93 0.005 260);
+  --popover: oklch(0.17 0.005 260);
+  --popover-foreground: oklch(0.93 0.005 260);
+
+  /* Primary = Amber/Gold */
+  --primary: oklch(0.82 0.17 75);
+  --primary-foreground: oklch(0.13 0.005 260);
+
+  /* Secondary = Elevated surface */
+  --secondary: oklch(0.21 0.005 260);
+  --secondary-foreground: oklch(0.85 0.005 260);
+
+  /* Muted */
+  --muted: oklch(0.21 0.005 260);
+  --muted-foreground: oklch(0.55 0.005 260);
+
+  /* Accent = Amber dim */
+  --accent: oklch(0.65 0.12 70);
+  --accent-foreground: oklch(0.13 0.005 260);
+
+  /* Destructive = Deep red */
+  --destructive: oklch(0.65 0.22 25);
+
+  /* Borders & inputs */
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.82 0.17 75);
+
+  /* Charts - amber gradient */
+  --chart-1: oklch(0.82 0.17 75);
+  --chart-2: oklch(0.72 0.14 70);
+  --chart-3: oklch(0.62 0.11 65);
+  --chart-4: oklch(0.52 0.08 60);
+  --chart-5: oklch(0.42 0.05 55);
+
+  --radius: 0.5rem;
+
+  /* Sidebar */
+  --sidebar: oklch(0.11 0.005 260);
+  --sidebar-foreground: oklch(0.93 0.005 260);
+  --sidebar-primary: oklch(0.82 0.17 75);
+  --sidebar-primary-foreground: oklch(0.13 0.005 260);
+  --sidebar-accent: oklch(0.21 0.005 260);
+  --sidebar-accent-foreground: oklch(0.93 0.005 260);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.82 0.17 75);
+
+  /* --- Custom design tokens --- */
+  --vault-accent: oklch(0.82 0.17 75);
+  --vault-accent-bright: oklch(0.90 0.15 80);
+  --vault-accent-dim: oklch(0.65 0.12 70);
+  --vault-bg-deep: oklch(0.13 0.005 260);
+  --vault-bg-surface: oklch(0.17 0.005 260);
+  --vault-bg-elevated: oklch(0.21 0.005 260);
+  --vault-bg-overlay: oklch(0.25 0.005 260);
+  --vault-text-primary: oklch(0.93 0.005 260);
+  --vault-text-secondary: oklch(0.68 0.005 260);
+  --vault-text-tertiary: oklch(0.48 0.005 260);
+  --vault-positive: oklch(0.72 0.19 155);
+  --vault-negative: oklch(0.65 0.22 25);
+  --vault-warning: oklch(0.78 0.16 65);
+  --vault-info: oklch(0.70 0.14 240);
+
+  /* Motion */
+  --vault-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --vault-duration: 200ms;
+  --vault-duration-slow: 400ms;
+}
+
+/* Also apply as .dark for shadcn compat */
+.dark {
+  --background: oklch(0.13 0.005 260);
+  --foreground: oklch(0.93 0.005 260);
+  --card: oklch(0.17 0.005 260);
+  --card-foreground: oklch(0.93 0.005 260);
+  --popover: oklch(0.17 0.005 260);
+  --popover-foreground: oklch(0.93 0.005 260);
+  --primary: oklch(0.82 0.17 75);
+  --primary-foreground: oklch(0.13 0.005 260);
+  --secondary: oklch(0.21 0.005 260);
+  --secondary-foreground: oklch(0.85 0.005 260);
+  --muted: oklch(0.21 0.005 260);
+  --muted-foreground: oklch(0.55 0.005 260);
+  --accent: oklch(0.65 0.12 70);
+  --accent-foreground: oklch(0.13 0.005 260);
+  --destructive: oklch(0.65 0.22 25);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.82 0.17 75);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans antialiased;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Force dark mode - class applied via layout.tsx on <html> */
+
+  /* Selection color */
+  ::selection {
+    background: oklch(0.82 0.17 75 / 30%);
+    color: oklch(0.93 0.005 260);
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+
+@layer utilities {
+  .font-display {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    letter-spacing: -0.03em;
+  }
+
+  .font-data {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ============================================================
+   GLASS MORPHISM
+   ============================================================ */
+
+@layer utilities {
+  .glass {
+    background: oklch(0.17 0.005 260 / 60%);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid oklch(1 0 0 / 6%);
+  }
+
+  .glass-elevated {
+    background: oklch(0.21 0.005 260 / 50%);
+    backdrop-filter: blur(24px) saturate(1.3);
+    border: 1px solid oklch(1 0 0 / 8%);
+  }
+
+  .glass-accent {
+    background: oklch(0.17 0.005 260 / 60%);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid oklch(0.82 0.17 75 / 20%);
+    box-shadow: 0 0 40px oklch(0.82 0.17 75 / 5%);
+  }
+}
+
+/* ============================================================
+   GRAIN TEXTURE OVERLAY
+   ============================================================ */
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ============================================================
+   GRID PATTERN (dot grid for hero sections)
+   ============================================================ */
+
+.grid-pattern {
+  background-image: radial-gradient(oklch(1 0 0 / 8%) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s var(--vault-ease) forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s var(--vault-ease) forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s var(--vault-ease) forwards;
+    opacity: 0;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-count-up {
+    animation: count-up 0.6s var(--vault-ease) forwards;
+    opacity: 0;
+  }
+
+  /* Stagger delays */
+  .delay-1 { animation-delay: 50ms; }
+  .delay-2 { animation-delay: 100ms; }
+  .delay-3 { animation-delay: 150ms; }
+  .delay-4 { animation-delay: 200ms; }
+  .delay-5 { animation-delay: 250ms; }
+  .delay-6 { animation-delay: 300ms; }
+  .delay-7 { animation-delay: 350ms; }
+  .delay-8 { animation-delay: 400ms; }
+}
+
+/* Terminal line fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================================
+   COMPONENT OVERRIDES
+   ============================================================ */
+
+/* Buttons - amber primary */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-mono text-sm font-medium px-6 py-2.5 rounded-md;
+    @apply transition-all duration-200;
+    @apply hover:brightness-110 hover:shadow-lg hover:shadow-primary/20;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply border border-border text-foreground font-mono text-sm font-medium px-6 py-2.5 rounded-md;
+    @apply transition-all duration-200;
+    @apply hover:border-primary/40 hover:text-primary;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply border border-primary/30 text-primary bg-primary/10 font-mono text-sm font-medium px-6 py-2.5 rounded-md;
+    @apply transition-all duration-200;
+    @apply hover:bg-primary/20 hover:border-primary/50;
+    @apply active:scale-[0.98];
+  }
+}
+
+/* Cards - glass effect (inlined because TW4 can't @apply custom utilities) */
+@layer components {
+  .card-glass {
+    background: oklch(0.17 0.005 260 / 60%);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid oklch(1 0 0 / 6%);
+    @apply rounded-lg p-6;
+    @apply transition-all duration-200;
+  }
+  .card-glass:hover {
+    border-color: oklch(1 0 0 / 10%);
+  }
+
+  .card-glass-accent {
+    background: oklch(0.17 0.005 260 / 60%);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid oklch(0.82 0.17 75 / 20%);
+    box-shadow: 0 0 40px oklch(0.82 0.17 75 / 5%);
+    @apply rounded-lg p-6;
+    @apply transition-all duration-200;
+  }
+  .card-glass-accent:hover {
+    border-color: oklch(0.82 0.17 75 / 30%);
+  }
+}
+
+/* Scrollbar - minimal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 15%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(1 0 0 / 25%);
+}
+
+/* ============================================================
+   AMBER GLOW EFFECTS
+   ============================================================ */
+
+.glow-amber {
+  box-shadow:
+    0 0 20px oklch(0.82 0.17 75 / 8%),
+    0 0 60px oklch(0.82 0.17 75 / 4%);
+}
+
+.glow-amber-strong {
+  box-shadow:
+    0 0 30px oklch(0.82 0.17 75 / 15%),
+    0 0 80px oklch(0.82 0.17 75 / 8%),
+    0 0 120px oklch(0.82 0.17 75 / 4%);
+}
+
+/* Text gradient - amber */
+.text-gradient-amber {
+  background: linear-gradient(135deg, oklch(0.90 0.15 80), oklch(0.82 0.17 75), oklch(0.70 0.14 65));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Divider - amber accent line */
+.divider-accent {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.82 0.17 75 / 40%), transparent);
+}

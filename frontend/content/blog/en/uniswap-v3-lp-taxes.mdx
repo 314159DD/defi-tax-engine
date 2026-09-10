@@ -1,0 +1,56 @@
+---
+title: "How Uniswap v3 LP Positions Are Taxed (2026 Guide)"
+description: "Concentrated liquidity in Uniswap v3 creates unique tax challenges. Learn how LP deposits, fee accrual, and impermanent loss are treated by the IRS."
+date: "2026-03-26"
+tags: ["defi", "uniswap", "lp"]
+author: "Editorial Team"
+---
+
+## What Makes Uniswap v3 Different
+
+Uniswap v3 introduced concentrated liquidity, which lets liquidity providers allocate capital within custom price ranges. Unlike v2, where your liquidity is spread across the entire price curve, v3 positions are represented as individual NFTs rather than fungible LP tokens. This distinction matters for tax reporting because each position has a unique cost basis and fee history.
+
+## How LP Deposits Are Taxed
+
+When you deposit two tokens into a Uniswap v3 pool, the IRS does not consider this a taxable event in itself. You are not selling your tokens; you are placing them into a smart contract. The cost basis of your LP position equals the combined fair market value of the tokens you deposited at the time of deposit.
+
+**Example:** You deposit 1 ETH ($3,000) and 3,000 USDC into an ETH/USDC pool. Your cost basis for the LP position is $6,000.
+
+Many crypto tax tools get this wrong. They treat the deposit as a sale of both tokens, generating a phantom gain. CryptoTax DeFi correctly tracks the deposit as a non-taxable transfer into a liquidity pool.
+
+## How Fees Are Taxed
+
+Fees earned from providing liquidity are taxable income. In Uniswap v3, fees accrue continuously in the pool but are only realized when you collect them. The IRS treats collected fees as ordinary income, valued at the fair market value on the date of collection.
+
+**Key point:** Uncollected fees are not taxable. Only when you click "Collect fees" and the tokens enter your wallet do they become a tax event.
+
+The cost basis of fee tokens is their fair market value at the time you collected them. If you later sell those tokens, you calculate capital gains from that cost basis.
+
+## Impermanent Loss and Tax Treatment
+
+Impermanent loss is the difference between holding your tokens versus providing liquidity. It occurs when the price ratio of your deposited tokens changes. Here is the critical tax rule: **impermanent loss is NOT a separately deductible event**.
+
+Impermanent loss is only realized for tax purposes when you remove your liquidity. At that point, you compare what you receive (the tokens returned plus any collected fees) against your original cost basis. If the value of the returned tokens is less than what you put in, the difference is a capital loss.
+
+## Removing Liquidity
+
+When you withdraw from a Uniswap v3 position, you receive tokens back. This is the taxable moment. Your gain or loss is calculated as:
+
+- **Proceeds:** Fair market value of all tokens received at the time of withdrawal
+- **Cost basis:** The original value of the tokens you deposited
+
+If you collected fees separately during the life of the position, those were already taxed as income and are not double-counted here.
+
+## How CryptoTax DeFi Handles It
+
+Our tool automatically detects Uniswap v3 liquidity events by analyzing the smart contract interactions on-chain. We correctly identify deposits as non-taxable transfers, track fee collection as income events, and calculate the true gain or loss on withdrawal, accounting for impermanent loss.
+
+All calculations run locally on your device. Your wallet addresses and transaction history never leave your machine.
+
+## Best Practices for LP Tax Reporting
+
+1. **Track every collect-fees transaction.** Each one is a separate income event.
+2. **Record your deposit values.** Screenshot or note the FMV of each token at deposit time.
+3. **Do not deduct impermanent loss separately.** It is factored into your withdrawal gain/loss.
+4. **Use FIFO consistently.** If you have multiple LP positions in the same pool, FIFO determines which cost basis applies first.
+5. **Keep records of your NFT position IDs.** Each v3 position is a unique NFT, and your tax tool should track them individually.

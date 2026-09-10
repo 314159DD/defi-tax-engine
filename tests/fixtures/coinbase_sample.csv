@@ -1,0 +1,5 @@
+Timestamp,Transaction Type,Asset,Quantity Transacted,Spot Price Currency,Spot Price at Transaction,Subtotal,Total (inclusive of fees and/or spread),Fees and/or Spread,Notes
+2024-01-15T12:00:00Z,Buy,ETH,1.0,USD,2500.00,2500.00,2512.50,12.50,Bought ETH
+2024-02-20T14:30:00Z,Sell,ETH,0.5,USD,2800.00,1400.00,1389.50,10.50,Sold ETH
+2024-03-01T09:00:00Z,Receive,USDC,500.0,USD,1.00,500.00,500.00,0.00,Received USDC
+2024-04-10T16:00:00Z,Coinbase Earn,ALGO,10.0,USD,0.15,1.50,1.50,0.00,Earned ALGO
